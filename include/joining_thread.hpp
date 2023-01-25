@@ -16,7 +16,7 @@ public:
 
     ~joining_thread() { joinable() ? join() : void(); }
 
-    joining_thread& operator=( jthread&& other ) noexcept 
+    joining_thread& operator=( joining_thread && other ) noexcept 
         { return static_cast<joining_thread&>(std::thread::operator=(static_cast<std::thread&&>(other))); };
 
     bool joinable() const noexcept { return std::thread::joinable(); };
